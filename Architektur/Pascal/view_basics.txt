@@ -1,0 +1,46 @@
+ 
+Für alle sichtbar :
+
+Registrierungsseite
+Anmeldeseite
+Nachrichten Postfach
+Dashboard
+
+
+
+
+
+Sichtbar für Student :
+
+Terminübersicht (inkl. Terminvorschläge des Tutors)
+Freigegebene Dokumente
+Vereinbarungen
+Formular für Mentorenwechsel
+
+
+
+
+
+Sichtbar für Mentor :
+
+Auswahlseite mit Studenten 
+-> Auswahlseite für hinzufügen oder ansehen mit den Auswahlmöglichkeiten:
+
+Aktionen (Hinzufügen/Bearbeiten/Ansehen)
+Notiz
+Vereinbarung
+Gesprächsprotokolle
+Terminübersicht (Terminvorschläge) (Angabe mit bis zu X Terminen zwischen welchen der Student wählen kann)
+Dokumente (für Tutorenzwecke)
+
+Formular für Studenten-Abgabe
+
+
+
+
+
+Sichtbar für Organisator
+
+Alles wie mentor PLUS:
+Seite zum Erstellen/Bearbeiten von Assignments (Beziehung Student-Mentor)
+Seite zum Angucken von Wechselanträgen/Abgabe

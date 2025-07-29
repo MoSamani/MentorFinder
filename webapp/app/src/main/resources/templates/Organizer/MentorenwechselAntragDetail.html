@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Organizer/organizerStart :: navigateOrganizer"></div>
+<div class="container">
+  <h1 th:text="@{'Student: '+${student}}"></h1>
+  <h2 th:text="@{'Mentor: '+${mentor}}"></h2> 
+  <br></br>
+  <p>Grund:</p>
+  <p th:text="${reason}"></p>
+</div>
+<br></br>
+<div class="container">
+  <a type="button" class="btn btn-success" th:href="@{'/organizer/mentorenwechselAntragAnnehmen/' +${request.id}}">Antrag Annehmen</a>
+  
+  <a type="button" class="btn btn-danger" th:href="@{'/organizer/mentorenwechselAntragAblehnen/' +${request.id}}">Antrag Ablehnen</a>
+</div>
+<br></br>
+<br></br>
+<div class="alert alert-info" role="alert">
+<a href="/organizer/mentorenwechselListe">Zurück zur Mentorenwechsel Antrag Übersicht</a>
+</div>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

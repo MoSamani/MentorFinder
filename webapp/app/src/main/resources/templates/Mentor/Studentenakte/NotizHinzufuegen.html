@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Mentor/mentorStart :: navigateMentor"></div>
+
+<h1>Neue Notiz</h1>
+
+<form method = "post" th:object="${note}">
+	<div class="form-group w-50">
+        <label for="TitleInput">Titel</label>
+        <input class="form-control" type="text" th:field="*{title}" id="TitleInput"></input>
+        <span th:errors="*{title}" class="alert alert-danger" role="alert"></span>
+	</div>
+	<div class="form-group w-50">
+        <label for="NachrichtInput">Notiz</label>
+        <textarea class="form-control" type="text" th:field="*{content}" id="NachrichtInput"></textarea>
+        <span th:errors="*{content}" class="alert alert-danger" role="alert"></span>
+	</div>
+	<input type ="submit" value="Notiz hinzufügen" class="btn btn-primary"/>
+</form>
+
+
+
+
+
+
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

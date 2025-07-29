@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Mentor/mentorStart :: navigateMentor"></div>
+
+<h1>Neues Dokument</h1>
+
+<form method = "post" enctype ="multipart/form-data">
+	<div class="form-group w-50">
+        <label for="TitleInput">Titel</label>
+        <input class="form-control" type="text" th:name="title" id="TitleInput"></input>
+        <span th:if="${titelNichtAngegeben}" class="alert alert-danger" role="alert">Bitte gib einen Titel an (1-70 Zeichen)</span>
+	</div>
+	<div class="form-group w-50">
+        <label for="NachrichtInput">Dokument (max. 10MB)</label>
+        <input class="form-control" type="file" th:name="file" id="NachrichtInput"></input>
+	</div>
+	<input type ="submit" value="Dokument hinzufügen" class="btn btn-primary"/>
+</form>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

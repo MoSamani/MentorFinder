@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Mentor/mentorStart :: navigateMentor"></div>
+<div th:replace = "Mentor/Studentenakte/NotizenUebersicht :: switch"></div>
+<div th:if="${StudentVorhanden}">
+<div class="form-group w-50">
+<label th:for ="Button" th:text="@{'Aktueller' + '  '+ 'Student' +': ' + ${student.prename} +' '+${student.surname}}"></label>
+<br></br><br></br>
+<a id = "Button" th:href="@{'/mentor/VereinbarungHinzufuegen/' +${student.mailAddress}}" class="btn btn-success">Vereinbarung hinzufügen</a>
+</div>
+<table class="table table-striped table-dark">
+  <thead class="thead-dark">
+    <tr>
+	  <th scope="col">Ziel</th>
+      <th scope="col">Startdatum</th>
+      <th scope="col">Enddatum</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr th:each="eintrag :${Vereinbarungenliste}">
+     
+      <td th:text="${eintrag.goal}">
+      </td>
+      <td th:if="${eintrag.beginning.minute}>9" th:text="@{${eintrag.beginning.dayOfMonth}+'.'+${eintrag.beginning.monthValue}+'.'+${eintrag.beginning.year}+' '+${eintrag.beginning.hour}+':'+${eintrag.beginning.minute}}">
+      </td>
+      <td th:unless="${eintrag.beginning.minute}>9" th:text="@{${eintrag.beginning.dayOfMonth}+'.'+${eintrag.beginning.monthValue}+'.'+${eintrag.beginning.year}+' '+${eintrag.beginning.hour}+':'+'0'+${eintrag.beginning.minute}}">
+      </td>
+      <td th:if="${eintrag.end.minute}>9" th:text="@{${eintrag.end.dayOfMonth}+'.'+${eintrag.end.monthValue}+'.'+${eintrag.end.year}+' '+${eintrag.end.hour}+':'+${eintrag.end.minute}}">
+      </td>
+      <td th:unless="${eintrag.end.minute}>9" th:text="@{${eintrag.end.dayOfMonth}+'.'+${eintrag.end.monthValue}+'.'+${eintrag.end.year}+' '+${eintrag.end.hour}+':'+'0'+${eintrag.end.minute}}">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

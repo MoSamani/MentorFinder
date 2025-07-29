@@ -1,0 +1,30 @@
+ 
+Implementierung nötige Funktionen:
+
+List<Message> getMessageOfUser(User sender, User receiver);
+oder
+User.getMessagesSendTo(User receiver);
+User.getMessagesSendBy(User sender);
+
+Mentor.getStudents()
+List<Student> getStudents(){}
+
+
+static List<Organizer> getOrganizer(); ??? class Organizer
+static List<Mentor> getMentors(); class Mentor
+
+Student.getMentor()
+Mentor getMentor(){}
+
+Message erstellen (wird von Spring boot erledigt)
+
+User.getAppointments
+List<Appointments> getAppointments(){}
+
+Object Appointmentsuggestion(List<Termine>)
+
+User.getAppointmentsuggestion()
+Appointmentsuggestion getAppointmentsuggestion(){}
+
+Student.getStudentakte
+Studenakte getStudentakter(){}

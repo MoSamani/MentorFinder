@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace ="Student/studentStart :: navigateStudent"></div>
+
+<form method = "post">
+<div class="form-group" th:object ="${message}">
+     <div class = "container">
+     <label th:unless = "${NoMentor}" for="header">Empfänger</label>
+     <h1 th:text="${mentor}" id ="header"></h1>
+     </div>
+   	 <div th:unless = "${NoMentor}" class="container">
+     <label for="titleInput">Titel</label>
+     <input type="text" class="form-control" th:field="*{title}" id="titleInput"/>
+     <span th:errors="*{title}" class="alert alert-danger" role="alert"></span>
+     </div>
+     <div th:unless = "${NoMentor}" class="container">
+     <label for="contentInput">Inhalt</label>
+     <textarea class="form-control" th:field="*{content}" id="contentInput"></textarea>
+     <span th:errors="*{content}" class="alert alert-danger" role="alert"></span>
+     </div>
+</div>
+<input th:unless = "${NoMentor}" type ="submit" value="Absenden" class="btn btn-primary"/>
+</form>
+
+
+<a href="/student/postfachEingang" class="badge badge-primary">Posteingang</a>
+<a href="/student/postfachAusgang" class="badge badge-primary">Postausgang</a>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

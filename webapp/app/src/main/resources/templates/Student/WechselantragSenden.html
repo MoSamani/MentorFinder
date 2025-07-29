@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+<div th:replace ="Student/studentStart :: navigateStudent"></div>
+<body class="container">
+
+<h1 th:if ="${mentorVorhanden} == false">Dir wurde noch kein Mentor zugewiesen</h1>
+<h1 th:if ="${antragSchonGestellt} == true">Du hast schon einen Antrag gesendet!</h1>
+<h1 th:unless ="${mentorVorhanden} == false or ${antragSchonGestellt} == true">Antrag Mentorenwechsel</h1>
+<br></br>
+<br></br>
+
+<form th:unless ="${mentorVorhanden} == false or ${antragSchonGestellt} == true" method = "post" th:object="${changeRequest}">
+	<p>Grund</p>
+	<div class="form-group w-50" >
+		<textarea class="form-control" th:field="*{reason}" id="reasonInput" rows="3"></textarea>
+        <span th:errors="*{reason}" class="alert alert-danger" role="alert"></span>
+	</div>
+ <br></br>
+	<input type ="submit" value="Antrag senden" class="btn btn-primary"/>
+</form>
+
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

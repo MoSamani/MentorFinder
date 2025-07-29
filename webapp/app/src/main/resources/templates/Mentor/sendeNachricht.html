@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = " Mentor/mentorStart :: navigateMentor"></div>
+<form method = "post" >
+ <div class="form-group" th:object ="${message}">
+  <label for="exampleFormControlSelect1">Wähle den Empfänger</label>
+  <select class="form-control" th:name="receiverName" id="exampleFormControlSelect1">
+   <option th:each ="eintrag : ${moeglicheEmpfaenger}" th:text="@{${eintrag.mailAddress}+', '+${eintrag.prename}+' ,' +${eintrag.role}}"></option>
+  </select>
+  <div class="container">
+   <label for="titleInput">Titel</label>
+   <input type="text" class="form-control" th:field="*{title}" id="titleInput"/>
+   <span th:errors="*{title}" class="alert alert-danger" role="alert"></span>
+  </div>
+  <div class="container">
+   <label for="contentInput">Inhalt</label>
+   <textarea type="text" class="form-control" th:field="*{content}" id="contentInput"></textarea>
+   <span th:errors="*{content}" class="alert alert-danger" role="alert"></span>
+  </div>
+ </div>
+ <input type ="submit" value="Absenden" class="btn btn-primary"/>
+</form>
+
+
+<a href="/mentor/postfachEingang" class="badge badge-primary">Posteingang</a>
+<a href="/mentor/postfachAusgang" class="badge badge-primary">Postausgang</a>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

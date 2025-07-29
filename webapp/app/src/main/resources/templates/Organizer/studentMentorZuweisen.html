@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Organizer/organizerStart :: navigateOrganizer"></div>
+
+<form method = "post">
+<div class="form-group">
+
+    <label for="FormControl">Wähle den Mentor</label>
+    <div class="container">
+    <select class="form-control" th:name="MentorSelected" id="FormControl">
+    <option  th:each ="mentor : ${moeglicheMentoren}" th:text="@{${mentor.mailAddress}+', '+${mentor.prename}+' '+${mentor.surname}}"></option>
+    </select>
+    </div>
+    <label th:text="@{'Name des Studenten : ' + ${student}}"></label>
+    <div class="container">
+    <input type ="submit" value="Absenden" class="btn btn-primary"/>
+   </div>
+</div>
+
+</form>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

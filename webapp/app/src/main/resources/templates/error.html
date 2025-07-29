@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<ul th:replace= "Startsite :: navigate"></ul>
+
+
+
+
+
+<div th:if="${status}==404">
+<p>Pfad nicht gefunden... Bist du sicher, dass du diese Url nicht erfunden hast?</p>
+<br></br><br></br>
+<a class="btn btn-success" href="/" role="button">Zurück zur Startseite</a>
+</div>
+<div th:if="${status}==403">
+<h1>Zugriff verweigert!</h1>
+<p>Hier darfst du nur mit den nötigen Zugriffsrechten hin, du hast vermutlich eine falsche Rolle</p>
+<br></br><br></br>
+<a class="btn btn-success" href="/" role="button">Zurück zur Startseite</a>
+</div>
+<div th:if="${status}==500">
+<h1>Etwas ist schief gelaufen...</h1>
+<br></br><br></br>
+<p>Hast du vielleicht ein Formular falsch ausgefüllt? Oder bist du in einem Account eingeloggt der durch neustarten der Datenbank nicht mehr existiert?</p>
+<a class="btn btn-success" th:href="${path}" role="button">Zurück zur Seite</a>
+</div>
+
+
+<div th:if="${status}==400">
+<div th:if="${path}=='/mentor/Terminvorschlaege' or ${path}=='/mentor/NotizenUebersicht' or ${path}=='/mentor/VereinbarungenUebersicht'
+			or ${path}=='/mentor/DokumentenUebersicht' or ${path}=='/mentor/sendeNachricht'
+			or ${path}=='/organizer/NotizenUebersicht' or ${path}=='/organizer/VereinbarungenUebersicht' or ${path}=='/organizer/DokumentenUebersicht'
+			or ${path}=='/organizer/sendeNachricht'">
+<h1>Dieser Fehler wird vermutlich angezeigt, weil du keinen Studenten ausgewählt hast</h1>
+<a class="btn btn-success" th:href="${path}" role="button">Zurück zur Seite</a>
+<br></br><br></br>
+</div>
+<div th:unless="${path}=='/mentor/Terminvorschlaege' or ${path}=='/mentor/NotizenUebersicht' or ${path}=='/mentor/VereinbarungenUebersicht'
+			or ${path}=='/mentor/DokumentenUebersicht' or ${path}=='/mentor/sendeNachricht'
+			or ${path}=='/organizer/NotizenUebersicht' or ${path}=='/organizer/VereinbarungenUebersicht' or ${path}=='/organizer/DokumentenUebersicht'
+			or ${path}=='/organizer/sendeNachricht'">
+<h1>Hast du vielleicht keinen Mentor ausgewählt?Oder etwas anderes nicht ausgewählt?</h1>
+<a class="btn btn-success" th:href="${path}" role="button">Zurück zur Seite</a>
+</div>
+</div>
+
+<div>
+ <br></br><br></br>
+<table class ="table">
+    <tr>
+        <td>Date</td>
+        <td th:text="${timestamp}"/>
+    </tr>
+    <tr>
+        <td>Path</td>
+        <td th:text="${path}"/>
+    </tr>
+    <tr>
+        <td>Error</td>
+        <td th:text="${error}"/>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td th:text="${status}"/>
+    </tr>
+    <tr>
+        <td>Exception</td>
+        <td th:text="${exception}"/>
+    </tr>
+</table>
+
+
+
+
+</div>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

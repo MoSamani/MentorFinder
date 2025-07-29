@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Student/studentStart :: navigateStudent"></div>
+
+<div class="container" th:object ="${document}">
+  <h1 th:text="*{title}"></h1>
+  <p></p>
+  <blockquote>
+    <p th:text="*{data}"></p>
+  </blockquote>
+  
+</div>
+<br></br>
+ <a class="btn btn-success" th:href="@{'/organizer/DokumentenUebersicht/'+${mailAddress}}" role="button">Dokumentenansicht</a>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

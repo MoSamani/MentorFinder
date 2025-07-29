@@ -1,0 +1,95 @@
+﻿Hinweis: Tutor = Mentor 
+Für alle sichtbar :
+
+
+- Email-Postfach mit Eingang und Ausgang mit Listen von Emails
+Das Email-Postfach ist für alle User gleich und besteht aus zwei Teilen :
+Dem Posteingang in welchem alle eingehenden Emails angezeigt werden und dem Postausgang in welchem alle Emails die der User selbst abgeschickt hatte angezeigt werden.
+
+- Email schreiben
+Diese Seite entscheidet sich für Studenten,Mentoren und Organisatoren.
+Alle 3 haben ein Textfeld gegeben um ihre Nachricht einzugeben und einen Button um die Email abzuschicken.Emails von Studenten werden immer an ihren momentanen Mentor gerichtet und daher haben Studenten keine Auswahl an wen die Email geht.
+Mentoren haben eine Dropdownbox mit dem sie zwischen all ihren Mentees und dem Organisator wechseln können um den Empfänger festzulegen.Der Organisator hat alle Student und Mentoren als Auswahl als Empfänger der Email.
+
+- Anmelden Seite
+Bevor man die Webseite benutzt muss man sich immer zuerst anmelden oder als Student ohne Konto registrieren.Hier gibt es einfach zwei Textfelder für id und password und einen Button zum einloggen
+
+Dashboard 
+Auf dem Dashboard werden einem die neusten 10 Ereignisse angezeigt (mit Verlinkung) die passiert sind z.B. der Tutor hat ein Dokument freigegeben oder du hast eine Email bekommen usw.
+
+
+
+
+Sichtbar für Student :
+
+- Registrierungsseite ???
+Hier gibt es Textfelder zum eingeben von Name,Githubname,Matrikelnummer,
+Id und Password.Sobald der Submit Button geklickt wird, wird mit diesen Informationen ein neues Konto erstellt.(geordnet nach Datum)
+
+-Terminübersicht
+Eine einfache Auflistung von allen Terminen des Users(Noch zu entscheiden nur Termine in Zukunft?).Zudem gibt es hier eine Verlinkung zur Terminakzeptierungsseite sollte der Mentor eine Anfrage und Optionen für Termine gegeben haben.(geordnet nach Datum)
+
+-Terminakzeptierungsseite
+Hier hat der Student die Auswahl zwischen den vom Tutor gegebenen Terminmöglichkeiten und kann eine von diesen akzeptieren oder keine akzeptieren.
+Dies wird gemacht durch Checkboxes und wieder mit einem Button abgeschickt.
+
+-Übersichtseite freigegebene Dokumente
+Hier sind alle Dokumente aufgelistet welche von einem Tutor für diesen Studenten freigegeben wurden.(geordnet nach Datum)
+
+-Übersichtsseite Vereinbarungen
+Hier sind alle Vereinbarungen aufgelistet welche der Student mit einem Tutor getroffen hat(geordnet nach Datum)
+
+-Wechselform
+Hier kann der Student in einem Textfeld eine Begründung angeben warum er seinen Tutor wechseln will und diese dann abschicken um den Wechsel zu beantragen.
+
+Sichtbar für Mentor :
+
+- Auswahlseite mit Studenten
+Der Mentor wählt einen Studenten aus mit dem er eine Aktion durchführen will und
+wird zur Auswahlseite weitergeleitet. 
+
+ -> Auswahlseite für hinzufügen oder ansehen mit den Auswahlmöglichkeiten:
+Hier muss der Mentor sich entscheiden ob er neue Informationen für seinen Studenten hinzufügen will oder sich die Dokumentation alter Informationen angucken will und wird zu dem dementsprechenden weitergeleitet.
+
+->-> Hinzufügenseite mit Möglichkeiten für
+    - Notiz
+	Textfeld zum hinzufügen der Notiz und ein submit Button.
+    - Vereinbarung
+	Textfeld zum hinzufügen einer Verinbarung und ein submit Button.
+    - Gesprächsprotokolle
+	Textfeld zum hinzufügen eines Gesprächsprotokolls und Dropbox zum Auswahl  	eines Termins(optional) und ein submit Button
+    - Terminvorschläge(Angabe mit bis zu X Terminen zwischen welchen der Student 	 wählen kann)
+    - Dokumente für Tutorenzwecke
+	Ein Feld zum hochladen einer Datei und ein submit Button.
+    
+->-> Ansehenseite mit Möglichkeiten für 
+    -Notiz
+	Liste aller Notizen des Mentor über diesen Studenten
+    -Vereinbarung
+	Liste aller Vereinbarungen des Mentor mit diesem Studenten
+    -Gesprächsprotokolle
+	Liste aller Gesprächsprotokolle des Mentor mit diesem Studenten
+    -Dokumente für Tutorenzwecke
+	Liste aller Dokumente welche der Mentor diesem Studenten zur Verfügung gestellt hat
+
+//ändern
+
+-Terminseite
+Liste aller Termin des Mentors mit allen Studenten
+-Wechselform
+Hier kann der Mentor einen Studenten auswählen und diesen 
+
+Notiz Hinzufügen Ansehen
+
+Sichtbar für Organisator :
+
+Das gleiche wie beim Mentor nur mit Bearbeitungsseite statt Hinzufügenseite
+und der Organisator kann die Dokumente aller Studenten angucken/bearbeiten.
+
+
+Seite zum erstellen/bearbeiten von Assignments
+Auswählen eines Studenten und Auswahl eines Mentors und dieser Student bekommt nun dieses Assignment zugewiesen anstelle des ehemaligen Assignment.
+
+Seite zum angucken von Wechselform anfragen
+Dargestellt ist eine Liste von Wechselformanfragen welche von Studenten oder Mentoren abgeschickt wurden.
+

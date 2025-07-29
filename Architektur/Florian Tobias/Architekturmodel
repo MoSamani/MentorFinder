@@ -1,0 +1,30 @@
+﻿ 
+Architektur unseres Projektes:
+
+Erklärung unserer MVC-Architektur
+
+Model
+Zum Model haben wir ein ObjectInterface für alle Objecte die wir benutzen
+
+AkteStudent(List<Email>,List<Note>,List<Agreement>,List<Appointment>,List<TutorDokuments>)
+Email(Person sender,Person receiver,Message message)
+Assignment(Tutor tutor,Student student)
+Note(String oneNote,Assignment assignment)
+Agreement(Assignment assignment,String Goals,LocalDateTime Deadline,LocalDateTime Beginning)
+Meetingdocumentation(Assignment assignment,String documentation)
+Appointment(Meetingdocumentation,boolean happened,LocalDateTime date)
+TutorDokuments(Assignment assignment,? documents,LocalDateTime upload(not necessary))
+ChangeRequestForm(Assignment assignment,String reasoning)
+
+Person(String name,Matrikel matrikelnumber, String Email,String id)
+Student(String name,Matrikel matrikelnumber, String Email,String id)
+Tutor(String name,Matrikel matrikelnumber, String Email,String id)
+Organizer(String name,Matrikel matrikelnumber, String Email,String id)
+
+Zudem haben wir ein Interface für alle Funktionen aller Klassen welche es zu implementieren gibt mit Erklärung ihrer Funktionalität
+
+…
+
+Das Model ist über die Infrastruktur mit der Datenbank verbunden
+
+Die View haben wir geplant mit mit einer Übersicht über alle Seiten/Templates des UI mit Erklärung ihrer Handlung, geordnet nach Personen die Zugriff auf die jeweilige Seite haben

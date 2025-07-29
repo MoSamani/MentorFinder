@@ -1,0 +1,11 @@
+Original von Tobias
+
+AkteStudent(List<Email>,List<Note>,List<Agreement>,List<Appointment>,List<TutorDokuments>, Matrikelnummer matrnr)
+Email(Person sender,Person receiver,Message message)
+Assignment(Tutor tutor,Student student)
+Note(String oneNote,Assignment assignment)
+Agreement(Assignment assignment,String Goals,LocalDateTime Deadline,LocalDateTime Beginning)
+Meetingdocumentation(*Assignment assignment* (Kann weg da durch Appointment referenziert),String documentation)
+Appointment(Assignment assignment,String documentation,boolean happened,LocalDateTime date)
+TutorDokuments(Assignment assignment,? documents,LocalDateTime upload(not necessary))
+ChangeRequestForm(Assignment assignment,String reasoning)

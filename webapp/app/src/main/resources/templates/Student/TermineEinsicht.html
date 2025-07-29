@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Student/studentStart :: navigateStudent"></div>
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Termine
+        </button>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body" >
+        
+        
+<table class="table table-striped table-dark">
+  <thead class="thead-dark">
+    <tr>
+	  <th scope="col">Mentor</th>
+	  <th scope="col">Datum</th>
+      <th scope="col">Status</th>
+      <th scope="col">Gesprächsprotokoll</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="appointment : ${appointments}">
+      <td th:text="@{${appointment.assignment.mentor.prename}+' '+${appointment.assignment.mentor.surname}}" ></td>
+      <td th:if="${appointment.date.minute}>9" th:text="@{${appointment.date.dayOfMonth}+'.'+${appointment.date.monthValue}+'.'+${appointment.date.year}+' '+${appointment.date.hour}+':'+${appointment.date.minute}}"></td>
+      <td th:unless="${appointment.date.minute}>9" th:text="@{${appointment.date.dayOfMonth}+'.'+${appointment.date.monthValue}+'.'+${appointment.date.year}+' '+${appointment.date.hour}+':'+'0'+${appointment.date.minute}}"></td>
+      <td>
+      <p th:if="${appointment.isCanceled() == true}" class="text-danger">Abgesagt!</p>
+      <p th:if="${appointment.isCanceled() == false}" th:unless="${appointment.isInPast() == false}" class="text-primary">Stattgefunden</p>
+      <a th:if="${appointment.isCanceled() == false}" th:unless="${appointment.isInPast() == true}" th:href="@{'/student/terminAbgesagt/'+${appointment.id}}" class="btn btn-danger" >Absagen</a>
+      </td>
+      <td>
+      <p th:if="${appointment.isCanceled() == true}" class="text-danger">nicht Vorhanden</p>
+      <p th:if="${appointment.isCanceled() == false and appointment.isInPast() == false}" th:unless="${conversationLog != null}"  class="text-danger">noch nicht Vorhanden</p>
+       <p th:if="${appointment.isInPast() ==  true and appointment.conversationLog == null}" th:unless="${conversationLog != null}"  class="text-danger">noch nicht Vorhanden</p>
+      <a th:if="${appointment.conversationLog != null and appointment.isCanceled() == false }" th:unless="${appointment.isInPast() == false}"  th:href="@{'/student/convLogDetail/'+${appointment.conversationLog.id}}" class="btn btn-primary" >Ansehen</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          ausstehende Terminvorschläge
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <table class="table table-striped table-dark">
+  <thead class="thead-dark">
+    <tr>
+	  <th scope="col">Terminvorschläge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="appointmentProp,iter : ${appointmentProposals}">
+      <td>
+        <a th:href="@{'/student/TerminvorschlaegeEinsehen/'+${appointmentProp.id}}" th:text="@{'Terminvorschlag '+${iter.index}}"></a>
+      </td>
+	</tr>
+  </tbody>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

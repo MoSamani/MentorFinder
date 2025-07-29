@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = " Mentor/mentorStart :: navigateMentor"></div>
+<div th:fragment ="switch">
+<h1> Studentenakte</h1>
+<a th:if="${StudentVorhanden}" th:href="@{'/mentor/NotizenUebersicht/' + ${student.mailAddress}}" class="badge badge-primary">Notizen</a>
+<a th:unless="${StudentVorhanden}" href="/mentor/NotizenUebersicht" class="badge badge-primary">Notizen</a>
+<a th:if="${StudentVorhanden}" th:href="@{'/mentor/VereinbarungenUebersicht/' + ${student.mailAddress}}" class="badge badge-primary">Vereinbarungen</a>
+<a th:unless="${StudentVorhanden}" href="/mentor/VereinbarungenUebersicht" class="badge badge-primary">Vereinbarungen</a>
+<a th:if="${StudentVorhanden}" th:href="@{'/mentor/DokumentenUebersicht/' + ${student.mailAddress}}" class="badge badge-primary">Dokumente</a>
+<a th:unless="${StudentVorhanden}" href="/mentor/DokumentenUebersicht" class="badge badge-primary">Dokumente</a>
+<br></br><br></br><br></br>
+<h3 th:text="${title}"></h3>
+<form method ="post" class="form-group w-50">
+<div class="form-group w-75">
+<label for="FormControl">Wähle den Studenten</label>
+  <select class="form-control" th:name="studentName" id="FormControl">
+   <option th:each ="eintrag : ${studenten}" th:text="@{${eintrag.mailAddress}+', '+${eintrag.prename}+' '+${eintrag.surname}}"></option>
+</select>
+</div>
+<input type ="submit" value="Studenten auswählen" class="btn btn-primary"/>
+</form>
+</div>
+<div th:if="${StudentVorhanden}">
+<div class="form-group w-50">
+<label th:for ="Button" th:text="@{'Aktueller' + '  '+ 'Student' +': ' + ${student.prename} +' '+${student.surname}}"></label>
+<br></br><br></br>
+<a id = "Button" th:href="@{'/mentor/NotizHinzufuegen/' + ${student.mailAddress}}" class="btn btn-success">Notiz hinzufügen</a>
+</div>
+<table class="table table-striped table-dark">
+  <thead class="thead-dark">
+    <tr>
+	  <th scope="col">Titel</th>
+      <th scope="col">Datum</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr th:each="eintrag :${Notizenliste}">
+      <td>
+       <a th:text="${eintrag.title}" th:href="@{'/mentor/NotizAnsehen/'+${student.mailAddress} +'/'+${eintrag.id}}"></a>
+      </td>
+      <td th:if="${eintrag.date.minute}>9" th:text="@{${eintrag.date.dayOfMonth}+'.'+${eintrag.date.monthValue}+'.'+${eintrag.date.year}+' '+${eintrag.date.hour}+':'+${eintrag.date.minute}}">
+      </td>
+      <td th:unless="${eintrag.date.minute}>9" th:text="@{${eintrag.date.dayOfMonth}+'.'+${eintrag.date.monthValue}+'.'+${eintrag.date.year}+' '+${eintrag.date.hour}+':'+'0'+${eintrag.date.minute}}">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<ul th:replace= "Startsite :: navigate"></ul>
+
+<h1 th:text ="${Title}"></h1>
+
+<form method = "post" th:object="${user}">
+	<div class="form-group w-50">
+        <label for="PrenameInput">Vorname</label>
+        <input class="form-control" type="text" th:field="*{prename}" id="prenameInput"/>
+        <span th:errors="*{prename}" class="alert alert-danger" role="alert"></span>
+	</div>
+	<div class="form-group w-50">
+        <label for="surnameInput">Nachname</label>
+        <input class="form-control" type="text" th:field="*{surname}" id="surnameInput"/>
+         <span th:errors="*{surname}" class="alert alert-danger" role="alert"></span>
+	</div>
+	<div class="form-group w-50">
+        <label for="mailAddressInput">Mail Address</label>
+        <input class="form-control" type="text" th:field="*{mailAddress}" id="mailAddressInput"/>
+         <span th:errors="*{mailAddress}" class="alert alert-danger" role="alert"></span>
+         <span th:if="${EmailVergeben}" class = "alert alert-danger" role ="alter">Es existiert bereits ein Account mit dieser Email</span>
+		 <span th:if="${Kommas}" class = "alert alert-danger" role ="alter">Bitte benutze eine Mailaddresse ohne Komma</span>
+	</div>
+	<div class="form-group w-50">
+        <label for="passwordInput">Password</label>
+        <input class="form-control" type="password" th:field="*{password}" id="passwordInput"/>
+         <span th:errors="*{password}" class="alert alert-danger" role="alert"></span>
+	</div>
+	<div th:if="${student}" class="form-group w-50">
+        <label for="nachrichtInput">Nachricht</label>
+        <textarea class="form-control" th:name="nachricht" id="nachrichtInput"></textarea>
+        <span th:if="${zuLang}" class="alert alert-danger" role="alert">Gib bitte einen text mit maximal 254 Zeichen an</span>
+	</div>
+	<input type ="submit" value="Account erstellen" class="btn btn-primary"/>
+</form>
+
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

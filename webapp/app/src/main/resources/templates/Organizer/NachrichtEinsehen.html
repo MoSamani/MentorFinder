@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+<div th:replace = "Organizer/organizerStart :: navigateOrganizer"></div>
+<body class="container">
+
+<div class="container">
+  <h1 th:text="${Title}"></h1>
+  <p></p>
+  <blockquote>
+    <p th:text="${Content}"></p>
+    <footer>
+    <small th:text="@{'Absender: ' + ${Sender}}"></small>
+    </footer>
+  </blockquote>
+</div>
+
+
+
+<div class="alert alert-info" role="alert">
+<a th:if="${posteingang}" href="/organizer/postfachEingang">Zurück zum Posteingang</a>
+<a th:unless="${posteingang}" href="/organizer/postfachAusgang">Zurück zum Postausgang</a>
+</div>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

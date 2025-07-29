@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Student/studentStart :: navigateStudent"></div>
+<br></br><br></br>
+<h1>Wähle einen Termin</h1>
+<form method ="post" class="form-group w-50">
+<div class="container">
+<div class="form-check" th:if="${appointment.date1.minute}>9">
+  <input class="form-check-input" type="radio" name="option" id="1" value="option1" checked="true"/>
+  <label class="form-check-label" for="1" th:text="@{${appointment.date1.dayOfMonth}+'.'+${appointment.date1.monthValue}+'.'+${appointment.date1.year}+' '+${appointment.date1.hour}+':'+${appointment.date1.minute}}"></label>
+</div>
+<div class="form-check" th:unless="${appointment.date1.minute}>9">
+  <input class="form-check-input" type="radio" name="option" id="1" value="option1" checked="true"/>
+  <label class="form-check-label" for="1" th:text="@{${appointment.date1.dayOfMonth}+'.'+${appointment.date1.monthValue}+'.'+${appointment.date1.year}+' '+${appointment.date1.hour}+':'+'0'+${appointment.date1.minute}}"></label>
+</div>
+<br></br>
+<div class="form-check" th:if="${appointment.date2.minute}>9">
+  <input class="form-check-input" type="radio" name="option" id="2" value="option2"/>
+  <label class="form-check-label" for="2" th:text="@{${appointment.date2.dayOfMonth}+'.'+${appointment.date2.monthValue}+'.'+${appointment.date2.year}+' '+${appointment.date2.hour}+':'+${appointment.date2.minute}}"></label>
+</div>
+<div class="form-check" th:unless="${appointment.date2.minute}>9">
+  <input class="form-check-input" type="radio" name="option" id="2" value="option2"/>
+  <label class="form-check-label" for="2" th:text="@{${appointment.date2.dayOfMonth}+'.'+${appointment.date2.monthValue}+'.'+${appointment.date2.year}+' '+${appointment.date2.hour}+':'+'0'+${appointment.date2.minute}}"></label>
+</div>
+<br></br>
+<div class="form-check" th:if="${appointment.date3.minute}>9">
+  <input class="form-check-input" type="radio" name="option" id="3" value="option3"/>
+  <label class="form-check-label" for="3" th:text="@{${appointment.date3.dayOfMonth}+'.'+${appointment.date3.monthValue}+'.'+${appointment.date3.year}+' '+${appointment.date3.hour}+':'+${appointment.date3.minute}}"></label>
+</div>
+<div class="form-check" th:unless="${appointment.date3.minute}>9">
+  <input class="form-check-input" type="radio" name="option" id="3" value="option3"/>
+  <label class="form-check-label" for="3" th:text="@{${appointment.date3.dayOfMonth}+'.'+${appointment.date3.monthValue}+'.'+${appointment.date3.year}+' '+${appointment.date3.hour}+':'+'0'+${appointment.date3.minute}}"></label>
+</div>
+<br></br>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="option" id="4" value="option3"/>
+  <label class="form-check-label" for="4" th:text="'Ich habe an keinem der Termine Zeit'"></label>
+</div>
+<br></br>
+</div>
+<input type ="submit" value="Auswählen" class="btn btn-primary"/>
+</form>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

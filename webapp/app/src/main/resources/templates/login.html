@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+
+<h1>Login</h1>
+
+<div th:if="${error}" class="alert alert-danger" role="alert" >
+  Ungültiger Benutzername oder Password (oder beides)
+</div>
+
+<form name='f' action="login" method='POST'>
+    <table>
+        <tr>
+            <td>User:</td>
+            <td><input type='text' name='username' value=''/></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type='password' name='password' /></td>
+        </tr>
+        <tr>
+            <td><input name="submit" type="submit" value="Login" /></td>
+        </tr>
+    </table>
+</form>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

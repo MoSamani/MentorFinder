@@ -1,0 +1,55 @@
+﻿User Stories
+
+Student:
+
+Ziel: Registrierung
+Ablauf: Empfehlung / Weiterleitung auf Auas
+	Möglichkeit sich anzumelden und zu registrieren
+	Registrieren mit Uni-Email
+
+Ziel: Ticket verfassen
+Vorr: kein aktives Ticket
+Ablauf: Titel und Beschreibung verfassen und absenden
+
+Ziel: Mentorwechsel
+Vorr: aktives Ticket
+Ablauf: Bei Ansicht des aktiven Tickets einen Button zum Mentorwechsel anklicken
+	Begruendung reinschreiben und absenden
+
+Ziel: Nachträgliche Nachricht
+Vorr: aktives Ticket, Nachricht ohne bisherige Antwort
+Ablauf: per Button moeglich noch eine extra Nachricht zu verfassen wie sonst auch
+
+Ziel: Ticket als abgeschlossen erklaeren
+Vorr: aktives Ticket
+Ablauf: per Button möglich (extra Nachfrage)
+
+
+Mentor:
+
+Ziel: 
+
+von Florian Schildt
+
+AkteStudent(List<Email>,List<Note>,List<Agreement>,List<Appointment>,List<TutorDokuments>)
+Email(Person sender,Person receiver,Message message)
+Assignment(Tutor tutor,Student student)
+Note(String oneNote,Assignment assignment)
+Agreement(Assignment assignment,String Goals,LocalDateTime Deadline,LocalDateTime Beginning)
+Meetingdocumentation(Assignment assignment,String documentation)
+Appointment(Meetingdocumentation,boolean happened,LocalDateTime date)
+TutorDokuments(Assignment assignment,? documents,LocalDateTime upload(not necessary))
+ChangeRequestForm(Assignment assignment,String reasoning)
+
+Person(String name,Matrikel matrikelnumber, String Email,String id)
+Student(String name,Matrikel matrikelnumber, String Email,String id)
+Tutor(String name,Matrikel matrikelnumber, String Email,String id)
+Organizer(String name,Matrikel matrikelnumber, String Email,String id)
+
+
+von Tobias Kämmerling
+
+
+
+
+

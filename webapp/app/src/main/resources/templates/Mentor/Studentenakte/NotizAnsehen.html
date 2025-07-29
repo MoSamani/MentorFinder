@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Mentor/mentorStart :: navigateMentor"></div>
+
+<div class="container" th:object="${note}">
+  <h1 th:text="*{title}"></h1>
+  <p></p>
+  <blockquote>
+    <p th:text="*{content}"></p>
+  </blockquote>
+</div>
+
+<a class="btn btn-success" th:href="@{'/mentor/NotizenUebersicht/'+${mailAddress}}" role="button">Notizenansicht</a>
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

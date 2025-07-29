@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<!-- nav-pills nav-fill -->
+
+<div class = "container" th:fragment="navigateOrganizer">
+<ul class="nav justify-content-center  " role="navigation">
+     <li class="nav-item">
+        <a class="nav-link active" href="/organizer/postfachEingang">Post</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/organizer/mentorenwechselListe">Mentorenwechselanträge</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/organizer/fallabschlussListe">Fallabschlussanträge</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/organizer/assignments">Assignments</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/organizer/NotizenUebersicht">Studentenakten</a>
+    </li>
+	<li class="nav-item">
+        <a class="nav-link" href="/organizer/mentorZuweisen">Studenten ohne Mentor</a>
+    </li>
+    <li class="nav-item">
+       <a class="btn btn-success" href="/logout" role="button">Ausloggen</a>
+    </li>
+</ul> 
+</div>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+Situation Wechselantrag:
+- Student will neuen Mentor
+- Stellt Wechselantrag
+-> Neuer Eintrag in Tabelle 'Wechselantrag'
+
+Alle Einträge in Tabelle Wechselantrag werden dem Organisator angezeigt
+- Organisator bestätigt Antrag -> App löscht Wechselantrag und zugehöriges Assignment
+- Organisator lehnt Antrag ab -> App löscht Wechselantrag

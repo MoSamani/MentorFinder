@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Organizer/organizerStart :: navigateOrganizer"></div>
+
+
+
+<table class="table table-striped table-dark">
+  <thead class="thead-dark">
+    <tr>
+	  <th scope="col">Mentor</th>
+      <th scope="col">Student</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr th:each="assignment : ${assignments}">
+      <td th:text="@{${assignment.mentor.prename}+' '+${assignment.mentor.surname}}"></td>
+      <td th:text="@{${assignment.student.prename}+' '+${assignment.student.surname}}"></td>
+      <td>
+      	<a class="btn btn-danger" th:text="Auflösen" th:href="@{'/organizer/assignmentLoeschen/'+${assignment.id}}"></a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<ul th:replace= "Startsite :: navigate"></ul>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+version: '3.2'
+services:
+
+    database:
+        image: mysql:5.7.19
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./database/db:/docker-entrypoint-initdb.d/:ro
+            - ./database/data:/var/lib/mysql:rw
+        environment:
+            - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
+            - MYSQL_USER=${DB_USER}
+            - MYSQL_PASSWORD=${DB_PASSWORD}
+            - MYSQL_DATABASE=${DB_DATABASE}
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "8585:80"
+        links:
+            - database:mysql
+        environment:
+            - MYSQL_USER=${DB_USER}
+            - MYSQL_PASSWORD=${DB_PASSWORD}
+            - PMA_ARBITRARY=1
+            - PMA_HOST=database

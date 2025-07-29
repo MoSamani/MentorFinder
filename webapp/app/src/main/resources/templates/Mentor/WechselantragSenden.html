@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = " Mentor/mentorStart :: navigateMentor"></div>
+
+<h1 th:if ="${studentVorhanden}">Dir hast momentan noch keine Studenten</h1>
+<h1 th:unless ="${studentVorhanden}">Antrag Fallabschluss</h1>
+<br></br>
+<br></br>
+<form th:unless ="${studentVorhanden}" method = "post" th:object="${closingRequest}">
+	<p>Grund</p>
+	<div class="form-group w-50" >
+		<textarea class="form-control" th:field="*{reason}" id="reasonInput" rows="3"></textarea>
+        <span th:errors="*{reason}" class="alert alert-danger" role="alert"></span>
+	</div>
+ <br></br>
+	<input type ="submit" value="Antrag senden" class="btn btn-primary"/>
+</form>
+
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

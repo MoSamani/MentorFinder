@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace ="Student/studentStart :: navigateStudent"></div>
+
+<a href="/student/postfachEingang" class="badge badge-primary">Posteingang</a>
+<a href="/student/postfachAusgang" class="badge badge-primary">Postausgang</a>
+<a href="/student/sendeNachricht" class="badge badge-primary">Nachricht senden</a>
+
+<h1 >Postausgang</h1>
+
+<table class="table table-striped table-dark">
+  <thead class="thead-dark">
+    <tr>
+	  <th scope="col">Empfänger</th>
+	  <th scope="col">Rolle</th>
+      <th scope="col">Titel</th>
+      <th scope="col">Datum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="nachricht,iter : ${nachrichten}">
+      <td th:text="@{${nachricht.receiver.prename} + ' ' + ${nachricht.receiver.surname}}"></td>
+       <td th:text="${nachricht.receiver.role}"></td>
+      <td>
+      <a th:text="${nachricht.title}" th:href="@{'/student/postfach/1/'+${iter.index}}">
+      </a>
+      </td>
+      <td th:if="${nachricht.date.minute}>9" th:text="@{${nachricht.date.dayOfMonth}+'.'+${nachricht.date.monthValue}+'.'+${nachricht.date.year}+' '+${nachricht.date.hour}+':'+${nachricht.date.minute}}">
+      </td>
+      <td th:unless="${nachricht.date.minute}>9" th:text="@{${nachricht.date.dayOfMonth}+'.'+${nachricht.date.monthValue}+'.'+${nachricht.date.year}+' '+${nachricht.date.hour}+':'+'0'+${nachricht.date.minute}}">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

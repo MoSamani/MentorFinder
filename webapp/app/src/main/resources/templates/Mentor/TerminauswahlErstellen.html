@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = " Mentor/mentorStart :: navigateMentor"></div>
+
+<h1>Neue Teminauswahl erstellen</h1>
+
+<form method ="post" th:object = "${appProposal}">
+<label for="ControlSelect">Wähle den Studenten</label>
+  <select class="form-control" th:name="receiverProposal" id="ControlSelect">
+   <option th:each ="eintrag : ${StudentsOfMentor}" th:text="@{${eintrag.mailAddress}+', '+${eintrag.prename}}"></option>
+  </select>
+<div class="form-group w-50">
+        <label for="DateInput">Datum</label>
+        <input class="form-control" type="date" th:name="date1" id="DateInput"/>
+</div>
+<div class="form-group w-50">
+        <label for="TimeInput">Uhrzeit</label>
+        <input class="form-control" type="time" th:name="time1" id="TimeInput"/>
+</div>
+<div class="form-group w-50">
+        <label for="DateInput">Datum</label>
+        <input class="form-control" type="date" th:name="date2" id="DateInput"/>
+</div>
+<div class="form-group w-50">
+        <label for="TimeInput">Uhrzeit</label>
+        <input class="form-control" type="time" th:name="time2" id="TimeInput"/>
+</div>
+<div class="form-group w-50">
+        <label for="DateInput">Datum</label>
+        <input class="form-control" type="date" th:name="date3" id="DateInput"/>
+</div>
+<div class="form-group w-50">
+        <label for="TimeInput">Uhrzeit</label>
+        <input class="form-control" type="time" th:name="time3" id="TimeInput"/>
+</div>
+
+<input type ="submit" value="Absenden" class="btn btn-primary"/> 
+</form>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>

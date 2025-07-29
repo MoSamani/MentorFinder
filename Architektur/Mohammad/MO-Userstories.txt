@@ -1,0 +1,39 @@
+### US-01(Sign Up)
+
+Der Student registirirert sich. Es existiert eine Schnittstelle für einloggen und oder registiriren. Wenn man auf Sign up Clickt wird ein Fester aufgemacht, in dem die notwendigen Infos eingegeben werden.
+
+* Voraussetzung:
+Es sollte eine Anmeldeformular(AnmeldungTemplate) schon dafür codiert worden sein!
+danach wird der Student zu StudentDashboard geleitet!
+Studentdashboard ist allgemein geschrieben, auf dem er die eigene Daten von dem Student, sein zustandigen Mentor und die Termine zu sehen sind 
+-----
+### US-02(Auswahl des Mentores)
+
+Nech dem registiriren bekommt der Organisator eine Nachricht, dass einen neuen Student sich registiriret hat! Dann schaut sich der Organisator die Liste von Metoren an! Die Liste ist Sortiert und der Neue Student wird zu dem Mentor zugewiesen, der weniger Mentees hat.
+
+* Voraussetzung:
+Es sollte eiene Schnittstelle mit eier Tabelle erzeugt werden, auf der nur die Organisatoren zugriff haben. Auf dieser Schnittstelle ist die Liste von Mentoren und die von ihnen betreuenden Mentess zu sehen.(MentorListTemplate) 
+
+-----
+### US-03(Termin vereinbaren)
+
+Der Mentor schickt dem Student einen Nachricht, und schlägt ihm einen oder mehrere möglichen Termine vor. Der Student schickt eine Nachricht zurück und sagt wlche Termin er in Anspruchnehmen kann.
+
+* Voraussetzung:
+
+
+------
+### US-04(Termin Bearbeiten)
+
+Die festgelegte Termine können bearbeitet werden indem man sie Verschieben oder löschen kann.
+
+* Voraussetzung:
+Sowohl der Student als auch der Mentor haben eine Liste von vereinbarten Termine als Tabele in iherem jeweligen Dashboard zu sehen. 
+
+### US-05(Mentorwechsel)
+
+Der Student sollte einen Mentorwechsel beantragen können. Dafür gibts einen Button auf seinem Dashboard, damit er Nachrichten zu den Organisatoren schicken kann!
+
+* Voraussetzung:
+Der Student sollte sowohl die Mentoren als auch die Organisatoren ansprechen können.
+

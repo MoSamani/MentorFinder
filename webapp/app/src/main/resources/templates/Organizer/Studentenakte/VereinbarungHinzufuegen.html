@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="Startsite :: header"></head>
+
+<body class="container">
+<div th:replace = "Organizer/organizerStart :: navigateOrganizer"></div>
+
+<h1>Neue Vereinbarung</h1>
+
+<form method ="post" th:object = "${agreement}">
+
+	<div class="form-group w-50">
+        <label for="GoalInput">Ziel</label>
+        <textarea class="form-control" type="text" th:field="*{goal}" id="GoalInput"></textarea>
+        <span th:errors="*{goal}" class="alert alert-danger" role="alert"></span>
+	</div>
+	<div class="form-group w-50">
+        <label for="DateInput">Datum Deadline</label>
+        <input class="form-control" type="date" th:name="DeadlineDate" id="DateInput"/>
+	</div>
+	<div class="form-group w-50">
+        <label for="TimeInput">Uhrzeit Deadline</label>
+        <input class="form-control" type="time" th:name="DeadlineTime" id="TimeInput"/>
+	</div>
+ 	<input type ="submit" value="Vereinbarung hinzufügen" class="btn btn-primary"/> 
+</form>
+
+<div th:replace ="Startsite :: bootend"></div>
+</body>
+
+</html>
